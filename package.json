@@ -1,0 +1,23 @@
+{
+  "name": "teste-agi",
+  "version": "1.0.0",
+  "description": "Teste AGI\r Este é um projeto que utiliza o Cypress para testes de front-end de um blog. O Cypress é uma ferramenta de automação de testes end-to-end que permite criar, executar e depurar testes de back/front/component.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeffJna/Interview-zen-cypress.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeffJna/Interview-zen-cypress/issues"
+  },
+  "homepage": "https://github.com/JeffJna/Interview-zen-cypress#readme",
+  "dependencies": {
+    "cypress": "^12.9.0"
+  }
+}

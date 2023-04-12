@@ -1,0 +1,32 @@
+name: AGI - Testing - Blog
+on: [push]
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ✔️
+        uses: actions/checkout@v2
+
+      - name: Install dependencies ⌛
+        run: npm ci
+
+      - name: Cypress run 🚀
+        uses: cypress-io/github-action@v4
+        with:
+          record: true
+        env:
+          # pass the Dashboard record key as an environment variable
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v2
+        if: failure() #failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+
+      - uses: actions/upload-artifact@v2
+        if: always() #failure()
+        with:
+          name: cypress-videos
+          path: cypress/videos
